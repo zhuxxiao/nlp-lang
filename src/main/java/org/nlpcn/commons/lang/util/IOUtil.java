@@ -183,9 +183,8 @@ public class IOUtil {
 	 */
 	public static void close(Reader reader) {
 		try {
-			if (reader != null) {
+			if (reader != null)
 				reader.close();
-			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -199,9 +198,8 @@ public class IOUtil {
 	 */
 	public static void close(InputStream is) {
 		try {
-			if (is != null) {
+			if (is != null)
 				is.close();
-			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

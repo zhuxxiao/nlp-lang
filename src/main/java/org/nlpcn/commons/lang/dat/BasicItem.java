@@ -9,7 +9,6 @@ public class BasicItem extends Item {
 	 * 
 	 * @param split split
 	 */
-	@Override
 	public void init(final String[] split) {
 		name = split[0];
 	}
@@ -19,7 +18,6 @@ public class BasicItem extends Item {
 	 * 
 	 * @param split split
 	 */
-	@Override
 	public void initValue(final String[] split) {
 		index = Integer.parseInt(split[0]);
 		name = split[1];
@@ -28,7 +26,6 @@ public class BasicItem extends Item {
 		status = Byte.parseByte(split[4]);
 	}
 
-	@Override
 	public String toText() {
 		return index + "\t" + name + "\t" + base + "\t" + check + "\t" + status;
 	}

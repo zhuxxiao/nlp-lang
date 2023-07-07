@@ -218,32 +218,27 @@ public final class Quintet<A,B,C,D,E>
     }
 
 
-    @Override
-	public A getValue0() {
+    public A getValue0() {
         return this.val0;
     }
 
 
-    @Override
-	public B getValue1() {
+    public B getValue1() {
         return this.val1;
     }
 
 
-    @Override
-	public C getValue2() {
+    public C getValue2() {
         return this.val2;
     }
 
 
-    @Override
-	public D getValue3() {
+    public D getValue3() {
         return this.val3;
     }
 
 
-    @Override
-	public E getValue4() {
+    public E getValue4() {
         return this.val4;
     }
 

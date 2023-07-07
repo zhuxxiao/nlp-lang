@@ -194,20 +194,17 @@ public final class Triplet<A,B,C>
     }
 
 
-    @Override
-	public A getValue0() {
+    public A getValue0() {
         return this.val0;
     }
 
 
-    @Override
-	public B getValue1() {
+    public B getValue1() {
         return this.val1;
     }
 
 
-    @Override
-	public C getValue2() {
+    public C getValue2() {
         return this.val2;
     }
 

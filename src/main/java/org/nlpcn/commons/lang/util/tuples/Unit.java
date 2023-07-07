@@ -174,8 +174,7 @@ public final class Unit<A>
     }
     
     
-    @Override
-	public A getValue0() {
+    public A getValue0() {
         return this.val0;
     }
 

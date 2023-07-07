@@ -20,7 +20,7 @@ public class SmartForest<T> implements Comparable<SmartForest<T>> , Serializable
 	/**
 	 * status 此字的状态1，继续 2，是个词语但是还可以继续 ,3确定 nature 词语性质
 	 */
-	public volatile SmartForest<T>[] branches = null;
+	public SmartForest<T>[] branches = null;
 	// 单独查找出来的对象
 	SmartForest<T> branch = null;
 	private double rate = 0.9;
@@ -112,9 +112,8 @@ public class SmartForest<T> implements Comparable<SmartForest<T>> , Serializable
 	}
 
 	public int getIndex(char c) {
-		if (branches == null) {
+		if (branches == null)
 			return -1;
-		}
 		if (branches.length == MAX_SIZE) {
 			return c;
 		}
@@ -136,9 +135,8 @@ public class SmartForest<T> implements Comparable<SmartForest<T>> , Serializable
 	}
 
 	public int compareTo(char c) {
-		if (this.c > c) {
+		if (this.c > c)
 			return 1;
-		}
 		if (this.c < c) {
 			return -1;
 		}
@@ -201,11 +199,9 @@ public class SmartForest<T> implements Comparable<SmartForest<T>> , Serializable
 		this.add(keyWord, t);
 	}
 
-	@Override
 	public int compareTo(SmartForest<T> o) {
-		if (this.c > o.c) {
+		if (this.c > o.c)
 			return 1;
-		}
 		if (this.c < o.c) {
 			return -1;
 		}

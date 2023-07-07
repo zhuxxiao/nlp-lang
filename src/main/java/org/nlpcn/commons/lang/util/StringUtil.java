@@ -62,16 +62,14 @@ public class StringUtil {
 					sb.append(c);
 					break;
 				case 1:
-					if (sb.length() > 0 && sb.charAt(sb.length() - 1) != c) {
+					if (sb.length() > 0 && sb.charAt(sb.length() - 1) != c)
 						sb.append(c);
-					}
 					do {
 						i++;
 					} while (i < length && input.charAt(i) == c);
 
-					if (i < length || input.charAt(length - 1) != c) {
+					if (i < length || input.charAt(length - 1) != c)
 						i--;
-					}
 					break;
 				default:
 					tl = filter[c] + i;
@@ -80,9 +78,8 @@ public class StringUtil {
 					char end = (char) filterEnd[c];
 					for (i++; i < length && i < tl; i++) {
 						c = input.charAt(i);
-						if (c > 127) {
+						if (c > 127)
 							continue;
-						}
 						if (c == end) {
 							flag = true;
 							break;

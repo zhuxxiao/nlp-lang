@@ -1,7 +1,6 @@
 package org.nlpcn.commons.lang.tire;
 
 import org.nlpcn.commons.lang.tire.domain.SmartForest;
-import org.nlpcn.commons.lang.util.WordAlert;
 
 public class SmartGetWord<T> {
 	private static final String EMPTYSTRING = "";
@@ -43,7 +42,7 @@ public class SmartGetWord<T> {
 
 	/**
 	 * 验证一个词语的左右边.不是英文和数字
-	 *
+	 * 
 	 * @param temp
 	 * @return
 	 */
@@ -80,18 +79,18 @@ public class SmartGetWord<T> {
 
 	/**
 	 * 验证两个char是否都是数字或者都是英文
-	 *
+	 * 
 	 * @param l
 	 * @param c
 	 * @return
 	 */
 	private boolean checkSame(char l, char c) {
 
-		if (WordAlert.isEnglish(l) && WordAlert.isEnglish(c)) {
+		if (isE(l) && isE(c)) {
 			return true;
 		}
 
-		if (WordAlert.isNumber(l) && WordAlert.isNumber(c)) {
+		if (isNum(l) && isNum(c)) {
 			return true;
 		}
 
@@ -111,7 +110,7 @@ public class SmartGetWord<T> {
 
 	private String allWords() {
 
-		for (; i < chars.length; ) {
+		for (; i < chars.length;) {
 			if (tempJLen == null) {
 				branch = branch.getBranch(chars[i]);
 			}
@@ -133,18 +132,18 @@ public class SmartGetWord<T> {
 				}
 
 				switch (branch.getStatus()) {
-					case 2:
-						offe = i;
-						param = branch.getParam();
-						tempJLen = j - i + 1;
-						return new String(chars, i, j - i + 1);
-					case 3:
-						offe = i;
-						param = branch.getParam();
-						branch = forest;
-						tempJLen = null;
-						i++;
-						return new String(chars, i - 1, j - i + 2);
+				case 2:
+					offe = i;
+					param = branch.getParam();
+					tempJLen = j - i + 1;
+					return new String(chars, i, j - i + 1);
+				case 3:
+					offe = i;
+					param = branch.getParam();
+					branch = forest;
+					tempJLen = null;
+					i++;
+					return new String(chars, i - 1, j - i + 2);
 				}
 
 			}
@@ -186,30 +185,44 @@ public class SmartGetWord<T> {
 				this.root += 1;
 			} else {
 				switch (this.branch.getStatus()) {
-					case 2:
-						this.isBack = true;
-						this.tempOffe = (this.i - this.root + 1);
-						this.param = this.branch.getParam();
-						break;
-					case 3:
-						this.offe = this.root;
-						this.str = new String(this.chars, this.root, this.i - this.root + 1);
-						String temp = this.str;
-						this.param = this.branch.getParam();
-						this.branch = this.forest;
-						this.isBack = false;
-						if (temp.length() > 0) {
-							this.i += 1;
-							this.root = this.i;
-						} else {
-							this.i = (this.root + 1);
-						}
-						return this.str;
+				case 2:
+					this.isBack = true;
+					this.tempOffe = (this.i - this.root + 1);
+					this.param = this.branch.getParam();
+					break;
+				case 3:
+					this.offe = this.root;
+					this.str = new String(this.chars, this.root, this.i - this.root + 1);
+					String temp = this.str;
+					this.param = this.branch.getParam();
+					this.branch = this.forest;
+					this.isBack = false;
+					if (temp.length() > 0) {
+						this.i += 1;
+						this.root = this.i;
+					} else {
+						this.i = (this.root + 1);
+					}
+					return this.str;
 				}
 			}
 		}
 		this.tempOffe += this.chars.length;
 		return null;
+	}
+
+	public boolean isE(char c) {
+		if ((c >= 'A') && (c <= 'z')) {
+			return true;
+		}
+		return false;
+	}
+
+	public boolean isNum(char c) {
+		if ((c >= '0') && (c <= '9')) {
+			return true;
+		}
+		return false;
 	}
 
 	public void reset(String content) {
@@ -231,6 +244,5 @@ public class SmartGetWord<T> {
 	public T getParam() {
 		return this.param;
 	}
-
 
 }

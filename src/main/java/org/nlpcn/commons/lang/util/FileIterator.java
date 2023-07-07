@@ -61,13 +61,12 @@ public class FileIterator implements Iterator<String>, Closeable {
 
 	@Override
 	public void close() {
-		if (br != null) {
+		if (br != null)
 			try {
 				br.close();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-		}
 	}
 
 	@Override

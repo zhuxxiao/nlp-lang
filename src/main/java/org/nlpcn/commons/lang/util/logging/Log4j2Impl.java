@@ -44,43 +44,36 @@ public class Log4j2Impl implements Log {
         return log;
     }
 
-    @Override
-	public boolean isDebugEnabled() {
+    public boolean isDebugEnabled() {
         return log.isDebugEnabled();
     }
 
-    @Override
-	public void error(String s, Throwable e) {
+    public void error(String s, Throwable e) {
         errorCount++;
         log.error(s, e);
     }
 
-    @Override
-	public void error(String s) {
+    public void error(String s) {
         errorCount++;
         log.error(s);
     }
 
-    @Override
-	public void debug(String s) {
+    public void debug(String s) {
         debugCount++;
         log.debug(s);
     }
 
-    @Override
-	public void debug(String s, Throwable e) {
+    public void debug(String s, Throwable e) {
         debugCount++;
         log.debug(s, e);
     }
 
-    @Override
-	public void warn(String s) {
+    public void warn(String s) {
         log.warn(s);
         warnCount++;
     }
 
-    @Override
-	public void warn(String s, Throwable e) {
+    public void warn(String s, Throwable e) {
         log.warn(s, e);
         warnCount++;
     }
@@ -104,19 +97,16 @@ public class Log4j2Impl implements Log {
         return debugCount;
     }
 
-    @Override
-	public boolean isInfoEnabled() {
+    public boolean isInfoEnabled() {
         return log.isInfoEnabled();
     }
 
-    @Override
-	public void info(String msg) {
+    public void info(String msg) {
         infoCount++;
         log.info(msg);
     }
 
-    @Override
-	public boolean isWarnEnabled() {
+    public boolean isWarnEnabled() {
         return log.isEnabled(Level.WARN);
     }
 
@@ -124,8 +114,7 @@ public class Log4j2Impl implements Log {
         return infoCount;
     }
 
-    @Override
-	public String toString() {
+    public String toString() {
         return log.toString();
     }
 

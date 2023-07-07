@@ -99,8 +99,7 @@ public abstract class Tuple implements Iterable<Object>, Serializable, Comparabl
     
 
     
-    @Override
-	public final Iterator<Object> iterator() {
+    public final Iterator<Object> iterator() {
         return this.valueList.iterator();
     }
     
@@ -230,8 +229,7 @@ public abstract class Tuple implements Iterable<Object>, Serializable, Comparabl
 
 
     
-    @Override
-	@SuppressWarnings({ "rawtypes", "unchecked" })
+    @SuppressWarnings({ "rawtypes", "unchecked" })
     public int compareTo(final Tuple o) {
         
         final int tLen = this.valueArray.length;
